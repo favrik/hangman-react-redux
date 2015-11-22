@@ -9,13 +9,13 @@ This project is an implementation of the [Hangman game](https://en.wikipedia.org
 
 ## Roadmap
 - [x] Base logic implementation
-- [ ] Define CSS/images strategy
-- [ ] Initial theme/layout design
-- [ ] Initial Chances view (the hangman, but can be anything that provides adequate feedback)
-- [ ] Redux-dev-tools integration (tricky due to recent version of React/Babel/DevTools)
+- [x] Define CSS/images strategy (A combination of Radium and global CSS)
+- [x] Initial Chances view (the hangman, but can be anything that provides adequate feedback)
 - [ ] Game over logic
 - [ ] Word pool from predefined values, or external fetch, and logic to select/pick them
 - [ ] Hints
+- [ ] Initial theme/layout design
+- [ ] Redux-dev-tools integration (tricky due to recent version of React/Babel/DevTools)
 - [ ] i18n?
 
 ## Contributing

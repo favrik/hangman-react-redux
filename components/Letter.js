@@ -3,11 +3,11 @@ import React, { PropTypes, Component } from 'react'
 export default class Letter extends Component {
   render() {
     const { guessed, value } = this.props
-    const theClass = guessed ? ' guessed' : 'hidden'
+    const statusClass = ' ' + (guessed ? 'guessed' : 'hidden')
     const display = guessed ? value : ''
 
     return (
-      <div className={'letter' + theClass}>{display}</div>
+      <div className={'letter' + statusClass}>{display}</div>
     )
   }
 }

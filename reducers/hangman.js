@@ -1,4 +1,4 @@
-import { GUESS_LETTER } from '../constants/ActionTypes'
+import { GUESS_LETTER, SET_WORD } from '../constants/ActionTypes'
 
 const initialState = {
   chances: 6,
@@ -9,8 +9,6 @@ const initialState = {
 }
 
 export default function hangman(state = initialState, action) {
-  const { guess } = action
-
   function addUniqueLetter(list, letter) {
     if (list.indexOf(letter) === -1) {
       list.push(letter)
@@ -19,6 +17,8 @@ export default function hangman(state = initialState, action) {
 
   switch (action.type) {
     case GUESS_LETTER:
+      const { guess } = action
+
       let { chances, misses, correct } = state
 
       if (state.word.includes(guess)) {
@@ -29,6 +29,9 @@ export default function hangman(state = initialState, action) {
       }
 
       return Object.assign({}, state, { guess, chances, misses, correct })
+
+    case SET_WORD:
+      return Object.assign({}, state, { word: action.word })
 
     default:
       return state

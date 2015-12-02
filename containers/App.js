@@ -9,6 +9,8 @@ import * as HangmanActions from '../actions/hangman'
 class App extends Component {
   componentDidMount() {
     window.addEventListener("keypress", e => this.handleKeypress(e), false)
+
+    this.props.actions.setWord('jazz')
   }
 
   handleKeypress(e) {

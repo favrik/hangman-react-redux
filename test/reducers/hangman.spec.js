@@ -3,6 +3,16 @@ import hangman from '../../reducers/hangman'
 import * as types from '../../constants/ActionTypes'
 
 describe('hangman reducer', () => {
+  function getInitialState() {
+    return {
+      chances: 6,
+      word: 'jazz',
+      misses: [],
+      correct: [],
+      guess: ''
+    }
+  }
+
   it('should handle initial state', () => {
     expect(
       hangman(undefined, {})
@@ -18,16 +28,6 @@ describe('hangman reducer', () => {
   })
 
   it('should handle GUESS_LETTER', () => {
-    function getInitialState() {
-      return {
-        chances: 6,
-        word: 'jazz',
-        misses: [],
-        correct: [],
-        guess: ''
-      }
-    }
-
     expect(
       hangman(getInitialState(),
       {
@@ -55,6 +55,19 @@ describe('hangman reducer', () => {
       correct: ['a'],
       chances: 6
     })
+  })
 
+  it('should handle SET_WORD', () => {
+    expect(
+      hangman(getInitialState(),
+        { type: types.SET_WORD, word: 'retro' }
+      )
+    ).toEqual({
+      guess: '',
+      word: 'retro',
+      misses: [],
+      correct: [],
+      chances: 6
+    })
   })
 })

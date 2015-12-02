@@ -14,7 +14,9 @@ class App extends Component {
   }
 
   handleKeypress(e) {
-    this.props.actions.guessLetter(String.fromCharCode(e.keyCode).toLowerCase())
+    if (this.props.hangman.chances > 0) {
+      this.props.actions.guessLetter(String.fromCharCode(e.keyCode).toLowerCase())
+    }
   }
 
   render() {

@@ -2,13 +2,18 @@ import React, { PropTypes, Component } from 'react'
 
 export default class Hangman extends Component {
   render() {
+    const { chances } = this.props
     let tree = [];
-    for (let i = 0; i < this.props.chances; i++) {
+    for (let i = 0; i < chances; i++) {
       tree.push(i)
     }
 
     return (
       <div>
+      {chances === 0 &&
+        <span>Game Over</span>
+      }
+
       {tree.map((value, index) =>
         <div key={'c' + index} className="chance"></div>
       )}

@@ -19,7 +19,9 @@ export default function hangman(state = initialState, action) {
     case GUESS_LETTER:
       const { guess } = action
 
-      let { chances, misses, correct } = state
+      let { chances } = state
+      let misses = state.misses.slice(0)
+      let correct = state.correct.slice(0)
 
       if (state.word.includes(guess)) {
         addUniqueLetter(correct, guess)

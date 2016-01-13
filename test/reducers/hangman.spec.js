@@ -27,36 +27,6 @@ describe('hangman reducer', () => {
     )
   })
 
-  it('should handle GUESS_LETTER', () => {
-    expect(
-      hangman(getInitialState(),
-      {
-        type: types.GUESS_LETTER,
-        guess: 'E'
-      })
-    ).toEqual({
-      guess: 'E',
-      word: 'jazz',
-      misses: ['E'],
-      correct: [],
-      chances: 5
-    })
-
-    expect(
-      hangman(getInitialState(),
-      {
-        type: types.GUESS_LETTER,
-        guess: 'a'
-      })
-    ).toEqual({
-      guess: 'a',
-      word: 'jazz',
-      misses: [],
-      correct: ['a'],
-      chances: 6
-    })
-  })
-
   it('should handle SET_WORD', () => {
     expect(
       hangman(getInitialState(),
@@ -68,6 +38,43 @@ describe('hangman reducer', () => {
       misses: [],
       correct: [],
       chances: 6
+    })
+  })
+
+
+  describe('should handle GUESS_LETTER', () => {
+    let initialState = getInitialState()
+
+    it('should track missed letters, decreasing chances', () => {
+      expect(
+        hangman(initialState,
+        {
+          type: types.GUESS_LETTER,
+          guess: 'E'
+        })
+      ).toEqual({
+        guess: 'E',
+        word: 'jazz',
+        misses: ['E'],
+        correct: [],
+        chances: 5
+      })
+    })
+
+    it('should track correct guesses', () => {
+      expect(
+        hangman(initialState,
+        {
+          type: types.GUESS_LETTER,
+          guess: 'a'
+        })
+      ).toEqual({
+        guess: 'a',
+        word: 'jazz',
+        misses: [],
+        correct: ['a'],
+        chances: 6
+      })
     })
   })
 })

@@ -15,7 +15,8 @@ This project is an implementation of the [Hangman game](https://en.wikipedia.org
 - [ ] Word pool from predefined values, or external fetch, and logic to select/pick them
 - [ ] Hints
 - [ ] Initial theme/layout design
-- [ ] Redux-dev-tools integration (tricky due to recent version of React/Babel/DevTools)
+- [ ] Hangman methaphor selector and a couple of metaphors
+- [ ] Redux-dev-tools integration
 - [ ] i18n?
 
 ## Contributing

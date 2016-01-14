@@ -55,9 +55,9 @@ describe('hangman reducer', () => {
       ).toEqual({
         guess: 'E',
         word: 'jazz',
-        misses: ['E'],
+        misses: ['E'], // misses are tracked
         correct: [],
-        chances: 5
+        chances: 5 // chances is decreased
       })
     })
 
@@ -72,9 +72,30 @@ describe('hangman reducer', () => {
         guess: 'a',
         word: 'jazz',
         misses: [],
-        correct: ['a'],
+        correct: ['a'], // correct guess is tracked
         chances: 6
       })
+    })
+
+    it('should not decrease chances if the wrong letter is guessed multiple times', () => {
+      let preparedState = getInitialState()
+      preparedState.misses.push('E')
+      preparedState.chances = 5
+
+      expect(
+        hangman(preparedState,
+        {
+          type: types.GUESS_LETTER,
+          guess: 'E'
+        })
+      ).toEqual({
+        guess: 'E',
+        word: 'jazz',
+        misses: ['E'],
+        correct: [],
+        chances: 5 // chances is not decreased
+      })
+
     })
   })
 })

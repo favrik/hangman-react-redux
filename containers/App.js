@@ -14,9 +14,19 @@ class App extends Component {
   }
 
   handleKeypress(e) {
-    if (this.props.hangman.chances > 0) {
+    if (this.props.hangman.chances > 0 && !this.solved()) {
       this.props.actions.guessLetter(String.fromCharCode(e.keyCode).toLowerCase())
     }
+  }
+
+  solved() {
+    const unique = function(xs) {
+      return xs.filter(function(x, i) {
+        return xs.indexOf(x) === i
+      })
+    }
+
+    return unique(this.props.hangman.word.split('')).length === this.props.hangman.correct.length
   }
 
   render() {
@@ -25,7 +35,7 @@ class App extends Component {
     return (
       <div className="hangman-app">
         <div className="chances-container">
-          <Hangman className="chances-indicator" chances={chances} />
+          <Hangman className="chances-indicator" chances={chances} solved={this.solved()} />
         </div>
         <div className="word-container">
           <Word value={word} correct={correct} />

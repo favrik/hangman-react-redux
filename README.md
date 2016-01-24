@@ -12,7 +12,7 @@ This project is an implementation of the [Hangman game](https://en.wikipedia.org
 - [x] Define CSS/images strategy (A combination of Radium and global CSS)
 - [x] Initial Chances view (the hangman, but can be anything that provides adequate feedback)
 - [x] Redux-dev-tools integration
-- [ ] Game over logic
+- [x] Game over logic
 - [ ] Word pool from predefined values, or external fetch, and logic to select/pick them
 - [ ] Hints
 - [ ] Initial theme/layout design

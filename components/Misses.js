@@ -2,12 +2,12 @@ import React, { PropTypes, Component } from 'react'
 
 export default class Misses extends Component {
   render() {
-    const misses = this.props.value.join(', ')
-    const missesMessage = this.props.value.length ? misses + '.' : 'No misses...yet!'
+    const { value } = this.props
+    const missesMessage = this.props.value.length ? value.map(x => x.toUpperCase()).join(', ') + '.' : 'No misses...yet!'
+    const missesClass = 'misses ' + (value.length ? 'misses-with' : 'misses-without')
 
     return (
-      <div className="misses"><strong>Misses:</strong> {missesMessage}</div>
-
+      <div className={missesClass}><strong>Misses:</strong> {missesMessage}</div>
     )
   }
 }

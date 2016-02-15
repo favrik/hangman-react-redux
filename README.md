@@ -20,5 +20,11 @@ This project is an implementation of the [Hangman game](https://en.wikipedia.org
 
 - [ ] i18n?
 
+
 ## Contributing
 Pull requests welcome!
+
+
+## Notes:
+### Word list was generated in an Ubuntu system by running:
+`egrep -i "[\'ééèĕê]" --invert-match /usr/share/dict/words |  egrep '.{3,}' >  wordlist.js`

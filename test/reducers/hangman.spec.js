@@ -13,7 +13,8 @@ describe('hangman reducer', () => {
         word: '',
         misses: [],
         correct: [],
-        guess: ''
+        guess: '',
+        isFetching: false
       }
     )
   })

@@ -1,11 +1,12 @@
-import { GUESS_WRONG_LETTER, GUESS_CORRECT_LETTER, SET_WORD } from '../constants/ActionTypes'
+import { GUESS_WRONG_LETTER, GUESS_CORRECT_LETTER, SET_WORD, REQUEST_WORD, RECEIVE_WORD } from '../constants/ActionTypes'
 
 const initialState = {
   chances: 6,
   word: '',
   misses: [],
   correct: [],
-  guess: ''
+  guess: '',
+  isFetching: false
 }
 
 export default function hangman(state = initialState, action) {
@@ -32,6 +33,12 @@ export default function hangman(state = initialState, action) {
 
     case SET_WORD:
       return Object.assign({}, state, { word: action.word })
+
+    case REQUEST_WORD:
+      return Object.assign({}, state, { isFetching: true} )
+
+    case RECEIVE_WORD:
+      return Object.assign({}, initialState, { word: action.word })
 
     default:
       return state

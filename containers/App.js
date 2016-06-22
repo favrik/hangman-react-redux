@@ -13,6 +13,10 @@ class App extends Component {
     this.props.actions.setWord('jazz')
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keypress', e => this.handleKeypress(e), false);
+  }
+
   handleKeypress(e) {
     if (this.props.hangman.chances > 0 && !this.solved()) {
       this.props.actions.guessLetter(String.fromCharCode(e.keyCode).toLowerCase())
@@ -34,6 +38,10 @@ class App extends Component {
 
     return (
       <div className="hangman-app">
+        <button onClick={ this.props.actions.fetchWord }>
+          Grab Random Word!
+        </button>
+
         <div className="chances-container">
           <Hangman className="chances-indicator" chances={chances} solved={this.solved()} />
         </div>

@@ -13,11 +13,10 @@ This project is an implementation of the [Hangman game](https://en.wikipedia.org
 - [x] Initial Chances view (the hangman, but can be anything that provides adequate feedback)
 - [x] Redux-dev-tools integration
 - [x] Game over logic
-- [ ] Word pool from predefined values, or external fetch, and logic to select/pick them
-- [ ] Hints
+- [x] Word pool from predefined values, or external fetch, and logic to select/pick them
 - [ ] Initial theme/layout design
 - [ ] Hangman methaphor selector and a couple of metaphors
-
+- [ ] Hints
 - [ ] i18n?
 
 

@@ -14,7 +14,7 @@ export default class Hangman extends Component {
         <span>Game Over</span>
       }
 
-      {tree.map((value, index) =>
+      {!solved && tree.map((value, index) =>
         <div key={'c' + index} className="chance"></div>
       )}
       </div>

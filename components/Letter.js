@@ -4,7 +4,7 @@ export default class Letter extends Component {
   render() {
     const { guessed, value } = this.props
     const statusClass = ' ' + (guessed ? 'guessed' : 'hidden')
-    const display = guessed ? value : ''
+    const display = guessed ? value : '_'
 
     return (
       <div className={'letter' + statusClass}>{display}</div>

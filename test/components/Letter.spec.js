@@ -26,7 +26,7 @@ describe('components', () => {
     it('should render correctly when guessed=false', () => {
       const { output } = setup()
       expect(output.props.className).toEqual('letter hidden')
-      expect(output.props.children).toEqual('')
+      expect(output.props.children).toEqual('_')
     })
 
     it ('should render correctly when guessed=true', () => {

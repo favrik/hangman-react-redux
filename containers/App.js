@@ -24,6 +24,10 @@ class App extends Component {
   }
 
   solved() {
+    if (this.props.hangman.word === '') {
+      return false
+    }
+
     const unique = function(xs) {
       return xs.filter(function(x, i) {
         return xs.indexOf(x) === i
@@ -38,10 +42,12 @@ class App extends Component {
 
     return (
       <div className="hangman-app">
-        <button onClick={ this.props.actions.fetchWord }>
-          Grab Random Word!
-        </button>
-
+        <h1>Hangman!</h1>
+        <div className="container">
+          <button className='myButton' onClick={ this.props.actions.fetchWord }>
+            Get Random Word!
+          </button>
+        </div>
         <div className="chances-container">
           <Hangman className="chances-indicator" chances={chances} solved={this.solved()} />
         </div>

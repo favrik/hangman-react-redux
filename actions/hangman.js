@@ -7,7 +7,7 @@ export function fetchWord() {
     return fetch('/word')
       .then(response => response.text())
       .then(text =>
-        dispatch(receiveWord(text))
+        dispatch(receiveWord(text.toUpperCase()))
       )
 
   }

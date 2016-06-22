@@ -19,12 +19,12 @@ app.get('/word', function(req, res) {
 });
 
 function getRandomLine(filename, res) {
-  fs.readFile(filename, function(err, data) {
+  fs.readFile(filename, 'utf8', function(err, data) {
     if (err) {
+      console.log(err);
       throw err;
     }
 
-    console.log(data);
     var lines = data.split('\n');
     res.send(lines[Math.floor(Math.random()*lines.length)]);
   });

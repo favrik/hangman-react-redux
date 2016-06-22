@@ -27,7 +27,7 @@ describe('components', () => {
     })
 
     it ('should render list of missed letters when there are misses', () => {
-      const { props, output } = setup({ value: ['a', 'Z'] })
+      const { props, output } = setup({ value: ['A', 'Z'] })
       expect(output.props.className).toEqual('misses misses-with')
 
       const [ strong, , text ] = output.props.children
